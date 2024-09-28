@@ -1,0 +1,171 @@
+$primary-color: #3b82f6
+$background-color: #f9fafb
+$card-bg: #ffffff
+$border-color: #e5e7eb
+$font-color: #111827
+$border-radius: 12px
+$box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05)
+$transition: all 0.3s ease
+
+.container
+  padding: 20px
+  background-color: $background-color
+
+.filter-container
+  display: flex
+  align-items: center
+  justify-content: flex-end
+  margin-bottom: 20px
+
+  label
+    font-weight: bold
+    margin-right: 10px
+
+  select
+    padding: 8px 12px
+    border: 1px solid $border-color
+    border-radius: $border-radius
+    background-color: $card-bg
+    color: $font-color
+    font-weight: 500
+    cursor: pointer
+    transition: $transition
+
+    &:focus
+      outline: none
+      border-color: $primary-color
+
+.tariff-list
+  display: flex
+  flex-direction: column
+  gap: 20px
+
+.tariff-card
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  gap: 15px
+  padding: 20px
+  background-color: $card-bg
+  border: 1px solid $border-color
+  border-radius: $border-radius
+  box-shadow: $box-shadow
+  transition: $transition
+
+  &:hover
+    transform: translateY(-5px)
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1)
+
+.show-benefits 
+  grid-template-columns: repeat(4, 1fr)
+
+.tariff-name
+  grid-column: 1
+  align-content: center
+  h3
+    margin: 0
+    color: $font-color
+
+.tariff-details
+  .tariff-details
+  display: flex
+  flex-direction: column
+  gap: 10px
+
+  .speeds
+    display: flex
+    flex-direction: column
+    gap: 5px
+
+    .speed-detail
+      display: flex
+      align-items: center
+
+  .icon
+    width: 30px
+    height: 30px
+    border-radius: 50%
+    background-color: $primary-color
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-right: 15px
+    overflow: hidden
+
+    &.download-icon::before
+      content: '↓'
+      color: #ffffff
+      font-size: 18px
+
+    &.upload-icon::before
+      content: '↑'
+      color: #ffffff
+      font-size: 18px
+
+    &.price-icon::before
+      content: '$'
+      color: #ffffff
+      font-size: 18px
+
+  .info
+    .tariff-title
+      font-size: 14px
+      color: $font-color
+      margin: 0
+
+    p
+      font-size: 16px
+      font-weight: bold
+      margin: 5px 0 0
+      color: $font-color
+
+.tariff-benefits
+  display: none
+  h4
+    font-size: 16px
+    font-weight: bold
+    margin-bottom: 5px
+    color: $font-color
+
+  ul
+    padding-left: 20px
+    list-style: disc
+
+    li
+      font-size: 14px
+      color: $font-color
+      margin-bottom: 5px
+
+.tariff-action
+  grid-column: 4
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+
+.choose-tariff-button
+  padding: 10px 20px
+  border: none
+  border-radius: $border-radius
+  background-color: $primary-color
+  color: #fff
+  font-weight: bold
+  cursor: pointer
+  transition: $transition
+
+  &:hover
+    background-color: darken($primary-color, 10%)
+    transform: translateY(-2px)
+
+@media (min-width: 1024px)
+  .tariff-benefits
+    display: block 
+
+@media (max-width: 1024px)
+  .tariff-card
+    flex-direction: column
+    align-items: flex-start
+
+  .tariff-details
+    margin-bottom: 15px
+
+    &:last-child
+      margin-bottom: 0
